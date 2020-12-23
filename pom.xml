@@ -45,4 +45,12 @@
 		</repository>
 	</repositories>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>aliYun plugin</id>
+			<name>AliYunP</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 </project>
