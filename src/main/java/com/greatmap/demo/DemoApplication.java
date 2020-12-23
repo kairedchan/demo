@@ -17,21 +17,18 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 		try {
-//			SpringApplicationBuilder springApplicationBuilder = new SpringApplicationBuilder(DemoApplication.class);
-//			ConfigurableApplicationContext context = springApplicationBuilder.headless(false).run(args);
-//
-//			Environment env = context.getEnvironment();
-//			String host = InetAddress.getLocalHost().getHostAddress();
-//			String port = env.getProperty("server.port");
-//			String contextPath = env.getProperty("server.servlet.context-path");
-//			contextPath = contextPath == null ? "" : contextPath;
-//			System.out.println("项目启动完成,地址：http://" + host + ":" + port + contextPath + "/");
-//			System.out.println("Swagger2接口文档地址：http://" + host + ":" + port + contextPath + "/swagger-ui.html");
-
 			SpringApplication bootstrap = new SpringApplication(DemoApplication.class);
 			bootstrap.setBanner(new ResourceBanner(new ClassPathResource("banner.txt")));
 			bootstrap.setBannerMode(Banner.Mode.CONSOLE);
-			bootstrap.run(args);
+			ConfigurableApplicationContext context = bootstrap.run(args);
+
+			Environment env = context.getEnvironment();
+			String host = InetAddress.getLocalHost().getHostAddress();
+			String port = env.getProperty("server.port");
+			String contextPath = env.getProperty("server.servlet.context-path");
+			contextPath = contextPath == null ? "" : contextPath;
+			System.out.println("项目启动完成,地址：http://" + host + ":" + port + contextPath + "/");
+			System.out.println("Swagger2接口文档地址：http://" + host + ":" + port + contextPath + "/swagger-ui.html");
 
 		} catch (Exception e) {
 			e.printStackTrace();
