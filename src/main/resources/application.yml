@@ -1,0 +1,12 @@
+server:
+  port: 11000
+
+spring:
+  application:
+    name: eureka-client-article-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://gmcloud:gmcloud@greatman1.com:10001/eureka/,http://salis:salis@greatman2.com:10002/eureka/
+

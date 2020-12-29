@@ -4,21 +4,21 @@ import org.springframework.boot.Banner;
 import org.springframework.boot.ResourceBanner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import java.io.PrintStream;
 import java.net.InetAddress;
 
 @SpringBootApplication
+@EnableSwagger2
 public class DemoApplication {
 
 	public static void main(String[] args) {
 		try {
 			SpringApplication bootstrap = new SpringApplication(DemoApplication.class);
-			bootstrap.setBanner(new ResourceBanner(new ClassPathResource("banner.txt")));
+			bootstrap.setBanner(new ResourceBanner(new ClassPathResource("static/banner/banner.txt")));
 			bootstrap.setBannerMode(Banner.Mode.CONSOLE);
 			ConfigurableApplicationContext context = bootstrap.run(args);
 
